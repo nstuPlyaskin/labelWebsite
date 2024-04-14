@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+    <section id="main-section">
+
+        <!-- section with img and hello text -->
+        <section id="left-section">
+            <img id="left-img"src="{% static 'main/img/loginImg.svg' %}" alt="Image"></img>
+        </section>
+
+        <!-- section with login fields -->
+        <section id="right-section">
+            <div id="header-text">AUTORIZATION</div>
+
+            <!-- login fields: email, password, button and description under button -->
+            <section id="login-fields">
+                <input type="text" id="email_field" placeholder="Email"></input>
+                <input type="password" id="password_field" placeholder="Password"></input>
+                <div href="#about" id="button-login">Sign in</div>
+                <div href="#send-demo" id="get-access">To get access you must submit a demo</div>
+            </section>
+
+        </section>
+
+    </section>
+</body>
+</html>

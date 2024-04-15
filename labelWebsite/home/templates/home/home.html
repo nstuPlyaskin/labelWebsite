@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+    <!-- main section -->
+    <section id="main-section">
+
+        <!-- leftside menu section -->
+        <section id="menu-section">
+            <img id="logo-img"src="{% static 'home/img/logoText.svg' %}" alt="Image"></img>
+
+            <div id="lnk-home"><img id="icon-nav" src="{% static 'home/img/icoHome.svg' %}"></img>Home</div>
+            <div id="lnk-releases"><img id="icon-nav" src="{% static 'home/img/icoMusic.svg' %}"></img>Releases</div>
+            <div id="lnk-statistics"><img id="icon-nav" src="{% static 'home/img/icoStats.svg' %}"></img>Statistics</div>
+            <div id="lnk-wallet"><img id="icon-nav" src="{% static 'home/img/icoMoney.svg' %}"></img>Wallet</div>
+
+            <div id="lnk-support"><img id="icon-nav" src="{% static 'home/img/icoHelp.svg' %}"></img>Support</div>
+            <div id="lnk-settings"><img id="icon-nav" src="{% static 'home/img/icoSettings.svg' %}"></img>Settings</div>
+            <div id="lnk-logout"><img id="icon-nav" src="{% static 'home/img/icoLogout.svg' %}"></img>Logout</div>
+        </section>
+
+        <!-- rightside content section -->
+        <section id="content-section">
+
+        </section>
+    </section>
+</body>
+</html>

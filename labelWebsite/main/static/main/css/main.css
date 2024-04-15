@@ -18,119 +18,149 @@
     background: #252525;
 }
 
-/* section with img, logo and hello text */
-#left-section{
-    width: 45%;
-    height: 100vh;
-
-    margin-top: 0;
-    margin-left: 0;
-}
-
-    #left-img{
-        width: 100%;
+    /* section with img, logo and hello text */
+    #left-section{
+        width: 45%;
         height: 100vh;
-        position: relative;
-        display: flex;
-        object-fit: cover;
-        left: 0;
-        overflow: hidden;
-        pointer-events: none;
+
+        margin-top: 0;
+        margin-left: 0;
     }
 
+        #left-img{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            object-fit: cover;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
 
 
-/* section with login fields */
-#right-section{
-    width: 55%;
-    height: 100%;
+    /* section with login fields */
+    #right-section{
+        width: 55%;
+        height: 100%;
 
-    margin-top: 0;
-    margin-right: 0;
-    background: #252525;
+        margin-top: 0;
+        margin-right: 0;
+        background: #252525;
 
-    font-family: 'Raleway';
+        font-family: 'Raleway';
+    }
+
+        #login-fields{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 5vh;
+            height: 70%;
+
+        }
+
+            #header-text{
+                color: #FFD502;
+                font-size: 7vh;
+                font-weight: 900;
+                text-align: center;
+                margin-top: 10vh;
+                letter-spacing: -0.25vh;
+            }
+            
+            #email_field, #password_field{
+                width: 70%;
+                height: 5vh;
+                color: white;
+                font-size: 2.25vh;
+                font-weight: lighter;
+                text-align: left;
+                letter-spacing: 0.15vh;
+                background: none;
+                border: none;
+                margin-top: 5vh;
+                border-bottom: solid 0.25vh #FFD502;
+                cursor: text;
+                outline:none;
+
+                transition: 0.55s;
+            }
+
+                    
+            #email_field{
+                margin-top: 15vh;
+            }
+
+            #email_field:hover, #password_field:hover{
+                border-bottom: solid 0.25vh #02ff5f;
+            }
+
+            #button_login{
+                background-color: #FFD502;
+                color: black;
+                padding: 1vh 2vh;
+                text-align: center;
+                text-decoration: none;
+
+
+                font-size: 3vh;
+                margin-bottom: 0;
+                margin-top: 25vh;
+                cursor: pointer;
+
+                width: 70%;
+                transition: 0.5s;
+            }
+            
+            #button_login:hover{
+                background-color: #00ff2f;
+            }
+
+            #get-access{
+                margin-top: 3vh;
+                color: yellow;
+                font-weight: lighter;
+                font-style: italic;
+                text-align: center;
+                cursor: pointer;
+                font-size: 2.25vh;
+
+                transition: 0.5s;
+            }
+
+            #get-access:hover{
+                text-decoration-line: underline;
+                font-weight: 400;            
+            }
+
+/* For Mobile Resolution */
+@media screen and (max-width: 900px){
+    #right-section{
+        width: 100%;
+    }
+
+    #header-text{
+        font-size: 5vh;
+    }
+
+    #email_field, #password_field{
+        width: 35vh;
+        font-size: 2vh;
+    }
+
+    #button_login{
+        width: 35vh;
+    }
+
+    #left-section{
+        width: 0;
+        height: 0;
+    }
+
+    #get-access{
+        font-size: 2vh;
+    }
 }
-
-    #login-fields{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 5vh;
-        height: 70%;
-
-    }
-
-        #header-text{
-            color: #FFD502;
-            font-size: 7vh;
-            font-weight: 900;
-            text-align: center;
-            margin-top: 10vh;
-            letter-spacing: -0.25vh;
-        }
-        
-        #email_field, #password_field{
-            width: 70%;
-            height: 5vh;
-            color: white;
-            font-size: 2.25vh;
-            font-weight: lighter;
-            text-align: left;
-            background: none;
-            border: none;
-            margin-top: 5vh;
-            border-bottom: solid 0.25vh #FFD502;
-            cursor: text;
-            outline:none;
-
-            transition: 0.55s;
-        }
-
-                
-        #email_field{
-            margin-top: 15vh;
-        }
-
-        #email_field:hover, #password_field:hover{
-            border-bottom: solid 0.25vh #02ff5f;
-        }
-
-        #button-login{
-            background-color: #FFD502;
-            color: black;
-            padding: 1vh 2vh;
-            text-align: center;
-            text-decoration: none;
-
-
-            font-size: 3vh;
-            margin-bottom: 0;
-            margin-top: 25vh;
-            cursor: pointer;
-
-            width: 70%;
-            transition: 0.5s;
-        }
-        
-        #button-login:hover{
-            background-color: #00ff2f;
-        }
-
-        #get-access{
-            margin-top: 3vh;
-            color: yellow;
-            font-weight: lighter;
-            font-style: italic;
-            text-align: center;
-            cursor: pointer;
-
-            transition: 0.5s;
-        }
-
-        #get-access:hover{
-            text-decoration-line: underline;
-            font-weight: 400;            
-        }

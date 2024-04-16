@@ -25,7 +25,6 @@
         justify-content: start;
         flex-direction: column;
         align-content: space-between;
-        align-items: left;
 
         width: 35vh;
         height: 100vh;
@@ -34,7 +33,7 @@
 
         font-family: 'Raleway';
         color: white;
-        font-size: 3vh;
+        font-size: 2.25vh;
         font-weight: lighter;
         
         background: black;
@@ -43,6 +42,7 @@
         transition: 0.25s;
     }
 
+        /* logo for desktop version */
         #logo-img{
             margin-top: 5vh;
             width: auto;
@@ -52,12 +52,22 @@
             user-select: none;
         }
 
+        /* logo for mobile version */
+        #small-logo-img{
+            margin-top: 0vh;
+            width: 0;
+            height: 0;
+
+            pointer-events: none;
+            user-select: none; 
+        }
+
         #lnk-home{
-            margin-top: 6vh;
+            margin-top: 10vh;
         }
 
         #lnk-support{
-            margin-top: 42vh;
+            margin-top: 43vh;
         }
 
         #lnk-home, #lnk-releases, #lnk-statistics, #lnk-wallet, #lnk-support, #lnk-settings, #lnk-logout{
@@ -97,3 +107,64 @@
 
         background: white;
     }
+
+
+/* For Mobile Resolution */
+@media screen and (max-width: 1024px){
+
+    /* leftside menu section */
+    #menu-section{
+        align-items: center;
+        width: 10vh;
+        font-size: 2.25vh;
+        transition: 0.25s;
+    }
+
+            /* logo for desktop version */
+            #logo-img{
+                margin-top: 0;
+                width: 0;
+                height: 0;
+            }
+
+            /* logo for mobile version */
+            #small-logo-img{
+                margin-top: 5vh;
+                width: auto;
+                height: 6.5vh;
+
+                pointer-events: none;
+                user-select: none; 
+            }
+
+            #lnk-home, #lnk-releases, #lnk-statistics, #lnk-wallet, #lnk-support, #lnk-settings, #lnk-logout{
+                margin-bottom: 1.5vh;
+                margin-left: 0;
+                margin-top: 1.5vh;
+
+                font-size: 0;
+                transition: 0.25s;
+            }
+
+            #lnk-home{
+                margin-top: 10vh;
+            }
+    
+            #lnk-support{
+                margin-top: 30vh;
+            }
+
+            #icon-nav{
+                width: 3.5vh;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 0.5vh;
+            }
+
+            #lnk-home:hover, #lnk-releases:hover, #lnk-statistics:hover, #lnk-wallet:hover, #lnk-support:hover, #lnk-settings:hover, #lnk-logout:hover{
+                margin-left: 7vh;
+                border-right: solid 5vh #FFD502;
+
+                transition: 0.5s;
+            }
+}

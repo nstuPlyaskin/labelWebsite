@@ -32,9 +32,10 @@
         margin-left: 0;
 
         font-family: 'Raleway';
-        color: white;
+        color: rgb(185, 185, 185);
         font-size: 2.25vh;
-        font-weight: lighter;
+        font-weight: normal;
+        letter-spacing: -0.1vh;
         
         background: black;
         overflow: hidden;
@@ -80,7 +81,8 @@
         }
 
         #lnk-home:hover, #lnk-releases:hover, #lnk-statistics:hover, #lnk-wallet:hover, #lnk-support:hover, #lnk-settings:hover, #lnk-logout:hover{
-            font-weight: normal;
+            font-weight: bold;
+            color: white;
             border-right: solid 2.25vh #FFD502;
         }
 
@@ -96,6 +98,13 @@
 
     /* rightside content section */
     #content-section{
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-content: stretch;
+        align-items: center;
+
         width: 100%;
         height: 100vh;
 
@@ -106,7 +115,105 @@
         font-family: 'Raleway';
 
         background: white;
+        overflow: hidden;
     }
+
+        /* header with category name and upload & logout buttons */
+        #header-frame{
+            position: relative;
+            display: flex;
+
+            flex-direction: row;
+            align-content: center;
+            justify-content: space-between;
+            align-items: baseline;
+
+            width: 80%;
+            height: 12vh;
+
+            letter-spacing: -0.1vh;
+
+            border-bottom: solid 0.05vh black;
+            border-spacing: 5vh;
+            background: white;
+
+            cursor: default;
+        }
+
+            #header-text{
+                margin-top: 2vh;
+                font-size: 7vh;
+                font-weight: bold;
+            }
+
+            #header-buttons{
+                position: relative;
+                display: flex;
+    
+                flex-direction: row;
+                align-content: center;
+            }
+
+                #header-button1, #header-button2{                                
+                    font-size: 2.25vh;
+                    font-weight: normal;
+
+                    cursor: pointer;
+
+                    transition: 0.25s;
+                }
+
+                #header-button1{
+                    margin-right: 2vh;
+                }
+
+                #header-button1:hover, #header-button2:hover{
+                    font-weight: bold;
+                }
+        /* frame with 3 buttons */
+        #nav-frame{
+            position: relative;
+            display: flex;
+
+            flex-direction: row;
+            align-content: center;
+            justify-content: space-between;
+            align-items: baseline;
+
+            width: 80%;
+            height: 25vh;
+
+            letter-spacing: -0.1vh;
+
+            border-bottom: solid 0.05vh black;
+            border-spacing: 5vh;
+            background: white;
+
+            cursor: default;
+            background: wheat;
+        }
+
+        /* frame splitter between upper part of website and with news from db */
+        #news-splitter{
+            position: relative;
+            display: flex;
+
+            flex-direction: row;
+            align-content: center;
+            justify-content: space-between;
+            align-items: baseline;
+
+            width: 80%;
+            height: 10vh;
+
+            letter-spacing: -0.1vh;
+
+            border-spacing: 5vh;
+            background: white;
+
+            cursor: default;
+            background: #FFD502;
+        }
 
 
 /* For Mobile Resolution */

@@ -51,6 +51,7 @@
         background: #252525;
 
         font-family: 'Raleway';
+        cursor: default;
     }
 
         #login-fields{

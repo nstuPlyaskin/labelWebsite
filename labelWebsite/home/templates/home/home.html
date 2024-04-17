@@ -37,37 +37,84 @@
             <!-- navigation big plates on middle of the screen -->
             <div id="nav-frame">
                 
-                <!-- first plate: releases -->
+                <!-- first plate: releases : 2 parts with imgs and text-->
                 <div id="nav-releases">
-                    <div id="nav-release-title">RELEASES</div>
-                    <div id="nav-release-text">List of your releases</div>
-                    <img id="nav-release-button" src="{% static 'home/img/homeArrow.svg' %}"></img>
-                    <img id="nav-release-button" src="{% static 'home/img/homeReleases.svg' %}"></img>
+
+                    <!-- 1 part: text -->
+                    <div id="nav-releases-text-frame">
+                        <div id="nav-release-title">RELEASES</div>
+                        <div id="nav-release-text">Releases list</div>
+                    </div>
+
+                    <!-- 2 part: imgs -->
+                    <div id="nav-releases-img">
+                        <img id="nav-release-button1" src="{% static 'home/img/homeArrow.svg' %}"></img>
+                        <img id="nav-release-button2" src="{% static 'home/img/homeReleases.svg' %}"></img>
+                    </div>
+
                 </div>
 
                 <!-- second plate: statistics -->
                 <div id="nav-stats">
-                    <div id="nav-release-title">STATISTICS</div>
-                    <div id="nav-release-text">Dashboard with release statsist</div>
-                    <img id="nav-release-button" src="{% static 'home/img/homeArrow.svg' %}"></img>
-                    <img id="nav-release-button" src="{% static 'home/img/homeStats.svg' %}"></img>
+
+                    <!-- 1 part: text -->
+                    <div id="nav-stats-text-frame">
+                        <div id="nav-stats-title">STATISTICS</div>
+                        <div id="nav-stats-text">Release statsist</div>
+                    </div>
+
+                    <!-- 2 part: imgs -->
+                    <div id="nav-stats-img">
+                        <img id="nav-stats-button1" src="{% static 'home/img/homeArrow.svg' %}"></img>
+                        <img id="nav-stats-button2" src="{% static 'home/img/homeStats.svg' %}"></img>
+                    </div>
+
                 </div>
 
                 <!-- third plate: wallet -->
                 <div id="nav-wallet">
-                    <div id="nav-release-title">WALLET</div>
-                    <div id="nav-release-text">Watch your profit</div>
-                    <img id="nav-release-button" src="{% static 'home/img/homeArrow.svg' %}"></img>
-                    <img id="nav-release-button" src="{% static 'home/img/homeWallet.svg' %}"></img>
+                    
+                    <!-- 1 part: text -->
+                    <div id="nav-wallet-text-frame">
+                        <div id="nav-wallet-title">WALLET</div>
+                        <div id="nav-wallet-text">Profit & payement</div>
+                    </div>
+
+                    <!-- 2 part: imgs -->
+                    <div id="nav-wallet-img">
+                        <img id="nav-wallet-button1" src="{% static 'home/img/homeArrow.svg' %}"></img>
+                        <img id="nav-wallet-button2" src="{% static 'home/img/homeWallet.svg' %}"></img>
+                    </div>
+
                 </div>
 
             </div>
 
             <!-- last news category splitter with long line -->
             <div id="news-splitter">
-                <div id="news-text">Last news</div>
-                <img id="news-line" src="{% static 'home/img/homeLine.svg' %}"></img>
+                <div id="news-splitter-text">Last news</div>
+                <div id="news-line"></div>
             </div>
 
+            <!-- news content -->
+            <div id="news-frame">
+                <!-- news items frame -->
+                {% for el in news %}
+                <dev id="news-item-frame">
+
+                    <!-- single item frame to render text + img-->
+                    <div id="news-texts-frame">
+                        <div id="news-topic">{{el.title}}</div>
+                        <div id="news-text">{{el.full_text}}</div>
+                        <div id="news-button">Read more</div>
+                    </div>
+
+                    <div id="news-img-frame">
+                        <img src="{% static 'home/img/newsCover.svg' %}" id="news-img"></img>
+                    </div>
+                </dev>
+                {% endfor %}
+                
+            </div>
         </section>
     {% endblock %}

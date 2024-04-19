@@ -22,7 +22,7 @@
     flex-direction: row;
     justify-content: stretch;
 
-    background: #252525;
+    background: white;
 }
 
 
@@ -305,13 +305,7 @@
 
                     #news-date{
                         font-size: 2.25vh;
-                        cursor: pointer;
-
                         transition: 0.25s;
-                    }
-
-                    #news-date:hover{
-                        font-weight: bold;
                     }
 
                 #news-img-frame{
@@ -396,7 +390,6 @@
     /* rightside content section */
     #content-section{
         align-items: center;
-        width: 85%;
         font-size: 2.25vh;
         transition: 0.25s;
     }

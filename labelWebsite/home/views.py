@@ -6,3 +6,6 @@ from .models import Articles
 def home(request):
     news = Articles.objects.order_by('-date')
     return render(request, 'home/home.html', {"news" : news})
+
+def releases(request):
+    return render(request, 'home/releases.html')

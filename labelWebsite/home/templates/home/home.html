@@ -1,24 +1,6 @@
 {% extends 'home/layout.html' %}
 {% load static %}
 
-<!-- leftside menu section -->
-    {% block menu-section %}
-            <section id="menu-section">
-                <img id="logo-img"src="{% static 'home/img/logoText.svg' %}" alt="Image"></img>
-                <img id="small-logo-img"src="{% static 'home/img/logoSmall.svg' %}" alt="Image"></img>
-
-                <div id="lnk-home"><img id="icon-nav" src="{% static 'home/img/icoHome.svg' %}"></img>Home</div>
-                <div id="lnk-releases"><img id="icon-nav" src="{% static 'home/img/icoMusic.svg' %}"></img>Releases</div>
-                <div id="lnk-statistics"><img id="icon-nav" src="{% static 'home/img/icoStats.svg' %}"></img>Statistics</div>
-                <div id="lnk-wallet"><img id="icon-nav" src="{% static 'home/img/icoMoney.svg' %}"></img>Wallet</div>
-
-                <div id="lnk-support"><img id="icon-nav" src="{% static 'home/img/icoHelp.svg' %}"></img>Support</div>
-                <div id="lnk-settings"><img id="icon-nav" src="{% static 'home/img/icoSettings.svg' %}"></img>Settings</div>
-                <div id="lnk-logout"><img id="icon-nav" src="{% static 'home/img/icoLogout.svg' %}"></img>Logout</div>
-            </section>
-    {% endblock %}
-
-
 <!-- rightside content section -->
     {% block homepage-section %}
         <section id="content-section">

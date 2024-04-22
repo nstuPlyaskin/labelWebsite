@@ -1,23 +1,38 @@
-
-<section id="content-section">
-
-    <!-- header with selected category on leftside and button upload & logout on rightside -->
-    <div id="header-frame">
-        <div id="header-text">Releases</div>
-
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="content-section">
+    
+        <!-- Заголовок с категорией и кнопками -->
+        <div id="header-frame">
+            <div id="header-text">Releases</div>
+    
             <div id="header-buttons">
                 <div id="header-button1">Upload</div>
                 <div id="header-button2">Logout</div>
             </div>
+        </div>
+    
+        <!-- Навигационное меню -->
+        <div id="navbar">
+            <div id="no-filter">No filter</div>
+            <div id="moderation">Moderation</div>
+            <div id="new-release">New release</div>
+            <div id="drafts">Drafts</div>
+            <div id="on-delete">On delete</div>
+            <div class="animation" id="nav-anim"></div>
+        </div>
+    
+        <!-- Блок для добавления нового релиза -->
+        <div id="content-release">
 
-    </div>
-
-    <div id="navbar">
-        <div id="no-filter">No filter</div>
-        <div id="moderation">Moderation</div>
-        <div id="new-release">New release</div>
-        <div id="drafts">Drafts</div>
-        <div id="on-delete">On delete</div>
-        <div class="animation" id="nav-anim"></div>
-    </div>
-</section>
+        </div>
+    </section> 
+</body>
+</html>

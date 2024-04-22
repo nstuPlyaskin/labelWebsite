@@ -43,11 +43,4 @@ document.addEventListener('DOMContentLoaded', function () {
         // Загружаем только содержимое раздела с использованием AJAX
         $('#content-section').load('/' + sectionId + ' #content-section');
     }
-
-        // Функция для загрузки контента
-        function setDefault(objName) {
-            val = document.getElementById(objName);
-            target = document.getElementById('#new-release')
-
-        }
 });

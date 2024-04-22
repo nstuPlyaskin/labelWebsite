@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     lnkReleases.addEventListener('click', function () {
         loadContent('releases');
     });
+    
 
     lnkStatistics.addEventListener('click', function () {
         loadContent('statistics');
@@ -42,4 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Загружаем только содержимое раздела с использованием AJAX
         $('#content-section').load('/' + sectionId + ' #content-section');
     }
-});Q
+
+        // Функция для загрузки контента
+        function setDefault(objName) {
+            val = document.getElementById(objName);
+            target = document.getElementById('#new-release')
+
+        }
+});

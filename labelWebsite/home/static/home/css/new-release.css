@@ -1,0 +1,154 @@
+#content-release{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+
+    overflow: hidden;
+
+    width: 80%;
+    height: 100%;
+
+    margin-top: 5vh;
+    background: none;
+} 
+
+    #new-release-section{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+        /* background: yellow; */
+    }
+
+        /* leftside indicators */
+        #leftSide{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-left: 10%;
+            margin-right: 10%;
+
+
+            width: 10%;
+            height: 25vh;
+
+            color: black;
+        }
+
+            #indicator{
+                overflow: hidden;
+            }
+
+            #indicator:after{
+                content: "";
+                position: absolute;
+                top: 0;
+                background-color: black;
+                width: 0.1vh;
+                height: 100%;
+                transform: translateX(-2vh);
+                /* transform: translateY(-50%); */
+            }
+
+                #indText1{
+                    margin-top: 0vh;
+                    color: black;
+                    font-weight: bold;
+
+                }
+
+                #indText2, #indText3{
+                    margin-top: 5vh;
+                    color: #737772;
+                }
+
+                #rightSide {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(9, 1fr);
+                    grid-column-gap: 0;
+                    grid-row-gap: 0;
+                    align-items: center;
+                    justify-items: start;
+                    width: 100%;
+                    height: 100%;
+                }
+                
+                #release-name { grid-area: 1 / 1 / 2 / 3; }
+                #artist-name { grid-area: 2 / 1 / 3 / 3; }
+                
+                #release-genre { grid-area: 3 / 1 / 4 / 2; }
+                #release-type { grid-area: 3 / 2 / 4 / 3; }
+                
+                #artist-profile { grid-area: 4 / 1 / 5 / 3; }
+                #artist-link { grid-area: 5 / 1 / 6 / 3; }
+                
+                /* Установка отступа после artist-link */
+                #release-date { grid-area: 6 / 2 / 7 / 3; }
+                #release-ecliptic { grid-area: 7 / 2 / 8 / 3; }
+                
+                #release-upc { grid-area: 6 / 1 / 7 / 2; }
+                #release-artist-real-name { grid-area: 7 / 1 / 8 / 2; }
+                
+                #button-clear { grid-area: 9 / 1 / 10 / 2; }
+                #button-next { grid-area: 9 / 2 / 10 / 3; }
+                
+        
+            #release-name, #artist-name, #artist-profile, #artist-link{
+                text-align: left;
+                border: none;
+                border-bottom: solid 0.25vh #FFD502;
+                cursor: text;
+                outline:none;
+                background: none;
+
+                letter-spacing: 0.1vh;
+                
+                width: 100%;
+                border-bottom: solid 0.25vh #FFD502;
+            }
+
+            #release-genre, #release-type, #release-date, #release-upc, #release-ecliptic, #release-artist-real-name, #button-next, #button-clear{
+                text-align: left;
+                border: none;
+                border-bottom: solid 0.25vh #FFD502;
+                cursor: text;
+                outline:none;
+                background: none;
+
+                width: 95%;
+                letter-spacing: 0.1vh;
+            }
+
+            #release-type, #release-date, #release-ecliptic, #button-next{
+                width: 100%;
+            }
+
+            #button-clear, #button-next{
+                text-align: center;
+                border: none;
+                cursor: pointer;
+            }
+
+            #button-clear{
+                background: red;
+            }
+
+            #button-next{
+                background: green;
+            }

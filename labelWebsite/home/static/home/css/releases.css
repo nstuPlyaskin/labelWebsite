@@ -134,23 +134,7 @@
             transition: all 0.5s ease 0s;
         }
 
-    /* section: add release */
-    #content-add-release{
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        justify-content: space-around;
-        align-items: center;
-
-        width: 80%;
-        height: 400vh;
-
-        margin-top: 5vh;
-        background: blue;
-    }           
-            
+     
 
 
 /* For Mobile Resolution */

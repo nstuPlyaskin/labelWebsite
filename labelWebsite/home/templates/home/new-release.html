@@ -1,5 +1,40 @@
-<section id="new-release">
-    <h2>New Release Section</h2>
-    <p>This is the content of the new release section.</p>
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/css/new-release.css' %}">
+
+<section id="new-release-section">
+    
+    
+    <!-- leftside with indicators -->
+    <section id="leftSide">
+        <div id="indicator">
+            <div id="indText1">Field info</div>
+            <div id="indText2">Upload files</div>
+            <div id="indText3">Confirm</div>
+        </div>
+    </section>
+
+    <!-- rightside with content -->
+    <section id="rightSide">
+        <input type="text" id="release-name" placeholder="Release name"></input>
+        <input type="text" id="artist-name" placeholder="Artist name"></input>
+
+        <input type="text" id="release-genre" placeholder="Release genre"></input>
+        <input type="text" id="release-type" placeholder="Release type"></input>
+
+        <!-- choose yes or no -->
+        <input type="text" id="artist-profile" placeholder="Do you have artist spotify profile?"></input>
+        <input type="text" id="artist-link" placeholder="Enter artist spotify profile link"></input>
+
+        <input type="date" id="release-date" placeholder="Release date"></input>
+        <input type="text" id="release-upc" placeholder="Release UPC"></input>
+
+        <!-- choose yes or no -->
+        <input type="text" id="release-ecliptic" placeholder="Ecliptic content"></input>
+        <input type="text" id="release-artist-real-name" placeholder="Autrhor real name"></input>
+
+        <div href="" id="button-next">Next step</div>
+        <div href="" id="button-clear">Clear</div>
+
+    </section>
 <section>
 

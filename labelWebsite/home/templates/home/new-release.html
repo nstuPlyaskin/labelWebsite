@@ -6,6 +6,11 @@
     
     <!-- leftside with indicators -->
     <section id="leftSide">
+        <div id="progress-bar-bg">
+            <div id="progress-bar-fill">
+                
+            </div>
+        </div>
         <div id="indicator">
             <div id="indText1">Field info</div>
             <div id="indText2">Upload files</div>
@@ -15,25 +20,21 @@
 
     <!-- rightside with content -->
     <section id="rightSide">
-        <input type="text" id="release-name" placeholder="Release name"></input>
-        <input type="text" id="artist-name" placeholder="Artist name"></input>
-
-        <input type="text" id="release-genre" placeholder="Release genre"></input>
-        <input type="text" id="release-type" placeholder="Release type"></input>
-
-        <!-- choose yes or no -->
-        <input type="text" id="artist-profile" placeholder="Do you have artist spotify profile?"></input>
-        <input type="text" id="artist-link" placeholder="Enter artist spotify profile link"></input>
-
-        <input type="date" id="release-date" placeholder="Release date"></input>
-        <input type="text" id="release-upc" placeholder="Release UPC"></input>
-
-        <!-- choose yes or no -->
-        <input type="text" id="release-ecliptic" placeholder="Ecliptic content"></input>
-        <input type="text" id="release-artist-real-name" placeholder="Autrhor real name"></input>
-
-        <div href="" id="button-next">Next step</div>
-        <div href="" id="button-clear">Clear</div>
+        <form method="post" id="form-first">
+            {% csrf_token %}
+            <span>{{ error }}</span>
+            {{ form.releaseName }}
+            {{ form.artistName }}
+            {{ form.releaseGenre }}
+            {{ form.releaseType }}
+            {{ form.artistLink }}
+            {{ form.releaseUPC }}
+            {{ form.releaseDate }}
+            {{ form.artistRealName }}
+            {{ form.eclipticContent }}        
+            <button href="" id="button-next" type="submit">Next step</button>
+            <button href="" id="button-clear" type="reset">Clear</button>
+        </form>
 
     </section>
 <section>

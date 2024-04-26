@@ -63,6 +63,7 @@ class NewReleaseForm(ModelForm):
 
                 "releaseCover": ClearableFileInput(attrs={
                 'id': 'release-cover',
+                'hidden': 'true',
             })
         }
 

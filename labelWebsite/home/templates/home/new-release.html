@@ -32,7 +32,19 @@
             {{ form.artistRealName }}
             {{ form.eclipticContent }}  
             
+            <div id="release-cover-notify">Please read hint before upload cover, dont waster your and our time.</div>
+            <div id="release-cover-title">Upload cover</div>
+
+            <div id="upload-bg">
+                <img src="{% static 'home/img/iconUpload.svg' %}" id="uploadIcon"></img>
+                <div id="uploadText1">Browse file to upload</div>
+                <div id="uploadText2">or drag and drop here</div>
+            </div>
+
+              
             {{ form.releaseCover }}
+            <div id="release-cover-hint">Hight quality square size picture, resolution: 3000X3000 pixels, jpeg Original cover (without any copyright issues including logos and characters) no links, qr and other codes or links on cover If u send wrong cover it can be canceled by platforms</div>
+
       
             <button href="" id="button-next" type="button">Next step</button>
             <button href="" id="button-clear" type="button">Clear</button>

@@ -139,13 +139,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 .catch(error => console.error('Error loading new-release: ', error));
         }
 
-        // NOW WE WORKIN' WITH FORM DUDE (пошел нахуй) 
+        // NOW WE WORKING WITH FORM
         // FORM - ADD - RELEASE - NEXT - STEP
         if (event.target.matches('#button-next')) {
             console.log('button-next clicked');
 
             const formFirst = document.getElementById('form-first');
+            const releaseCoverNotify = document.getElementById('release-cover-notify');
+            const releaseCoverTitle = document.getElementById('release-cover-title');
             const releaseCover = document.getElementById('release-cover');
+            const uploadBg = document.getElementById('upload-bg');
+            const releaseCoverHint = document.getElementById('release-cover-hint');
 
             if (formFirst.checkValidity()) {
                 // Форма валидна, продолжаем выполнение действий
@@ -154,23 +158,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const formElements = formFirst.elements;
 
+                releaseCoverNotify.style.display = 'block';
+                releaseCoverNotify.style.width = '100%';
+                releaseCoverNotify.style.height = 'auto';
+
+                releaseCoverTitle.style.display = 'block';
+                releaseCoverTitle.style.width = '100%';
+                releaseCoverTitle.style.height = '100%';
 
                 releaseCover.style.display = 'block';
-                releaseCover.style.width = '30vh';
-                releaseCover.style.height = '15vh';
+                releaseCover.style.width = '100%';
+                releaseCover.style.height = '60%';
+
+                releaseCoverHint.style.display = 'block';
+                releaseCoverHint.style.width = '100%';
+                releaseCoverHint.style.height = 'auto';
+
+                uploadBg.style.display = 'flex';
+                uploadBg.style.width = '100%';
+                uploadBg.style.height = '100%';
 
                 // Пройдемся по всем элементам формы и скроем их
                 for (let i = 0; i < formElements.length; i++) {
                     const element = formElements[i];
-                    if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover') {
+                    if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover'
+                        && element.id !== 'release-cover-notify' && element.id !== 'release-cover-title'
+                        && element.id !== 'release-cover-hint' && element.id !== 'upload-bg') {
                         element.style.display = 'none'; // Скрываем элемент, если он не является кнопкой
                     }
                 }
 
-
                 buttonClear.textContent = 'Back';
                 errorMsg.style.display = '';
-                
+
             } else {
                 // Форма не прошла проверку на валидность
                 const errorMessage = document.getElementById('error');
@@ -178,6 +198,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 errorMessage.style.display = 'block'; // Показываем элемент с сообщением об ошибке
             }
         }
+
+        if (event.target.matches('#upload-bg') || event.target.matches('#uploadIcon') || event.target.matches('#uploadText1') || event.target.matches('#uploadText2')) {
+            document.getElementById('release-cover').click();
+        }
+        
 
 
 
@@ -188,13 +213,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formFirst = document.getElementById('form-first');
                 const formElements = formFirst.elements;
 
+                const releaseCover = document.getElementById('release-cover');
+                const releaseCoverNotify = document.getElementById('release-cover-notify');
+                const releaseCoverTitle = document.getElementById('release-cover-title');
+                const releaseCoverHint = document.getElementById('release-cover-hint');
+                const uploadBg = document.getElementById('upload-bg');
+
                 // Пройдемся по всем элементам формы
                 for (let i = 0; i < formElements.length; i++) {
                     const element = formElements[i];
-                    if (element.nodeName.toLowerCase() !== 'button') { // Проверяем, не является ли элемент кнопкой
+                    if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover' && element.id !== 'upload-bg') { // Проверяем, не является ли элемент кнопкой или release-cover
                         element.style.display = ''; // Возвращаем отображение элемента
                     }
                 }
+
+                // Скрываем release-cover-notify, release-cover-title и release-cover-hint
+                releaseCover.style.display = 'none';
+                releaseCoverNotify.style.display = 'none';
+                releaseCoverTitle.style.display = 'none';
+                releaseCoverHint.style.display = 'none';
+                uploadBg.style.display = 'none';
 
                 // Поменяем текст кнопки обратно на "Clear"
                 event.target.textContent = 'Clear';
@@ -202,7 +240,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
 
-        
         
     });
 

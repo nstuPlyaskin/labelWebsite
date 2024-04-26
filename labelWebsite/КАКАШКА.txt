@@ -1,0 +1,61 @@
+        // NOW WE WORKIN' WITH FORM DUDE (пошел нахуй) 
+        // FORM - ADD - RELEASE - NEXT - STEP
+        if (event.target.matches('#button-next')) {
+            console.log('button-next clicked');
+
+            const formFirst = document.getElementById('form-first');
+            const releaseCover = document.getElementById('release-cover');
+
+            if (formFirst.checkValidity()) {
+                // Форма валидна, продолжаем выполнение действий
+                const buttonClear = document.getElementById('button-clear');
+                const errorMsg = document.getElementById('error');
+
+                const formElements = formFirst.elements;
+
+
+                releaseCover.style.display = 'block';
+                releaseCover.style.width = '30vh';
+                releaseCover.style.height = '15vh';
+
+                // Пройдемся по всем элементам формы и скроем их
+                for (let i = 0; i < formElements.length; i++) {
+                    const element = formElements[i];
+                    if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover') {
+                        element.style.display = 'none'; // Скрываем элемент, если он не является кнопкой
+                    }
+                }
+
+
+                buttonClear.textContent = 'Back';
+                errorMsg.style.display = '';
+                
+            } else {
+                // Форма не прошла проверку на валидность
+                const errorMessage = document.getElementById('error');
+                errorMessage.textContent = `Ошибка в поле: "${formFirst.querySelector(':invalid').name}" ${formFirst.querySelector(':invalid').validationMessage}`;
+                errorMessage.style.display = 'block'; // Показываем элемент с сообщением об ошибке
+            }
+        }
+
+
+
+        // FORM - ADD - RELEASE - BACK - STEP
+        if (event.target.matches('#button-clear')) {
+            // Проверяем, содержит ли текст кнопки слово "Back"
+            if (event.target.textContent.includes('Back')) {
+                const formFirst = document.getElementById('form-first');
+                const formElements = formFirst.elements;
+
+                // Пройдемся по всем элементам формы
+                for (let i = 0; i < formElements.length; i++) {
+                    const element = formElements[i];
+                    if (element.nodeName.toLowerCase() !== 'button') { // Проверяем, не является ли элемент кнопкой
+                        element.style.display = ''; // Возвращаем отображение элемента
+                    }
+                }
+
+                // Поменяем текст кнопки обратно на "Clear"
+                event.target.textContent = 'Clear';
+            }
+        }

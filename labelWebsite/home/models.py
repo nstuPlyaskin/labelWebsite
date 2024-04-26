@@ -24,6 +24,7 @@ class Release(models.Model):
     artistRealName = models.CharField('ФИО Ариста', max_length=256)
     eclipticContent = models.CharField('Нецензурная лексика', max_length=16)
 
+    releaseCover = models.ImageField('Обложка', null=True, blank=True, upload_to="image")
     def __str__(self):
         return self.releaseName
     

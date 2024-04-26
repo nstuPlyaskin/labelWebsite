@@ -1,10 +1,10 @@
 from .models import Release
-from django.forms import ModelForm, TextInput, DateTimeInput
+from django.forms import ModelForm, TextInput, DateTimeInput, ClearableFileInput 
 
 class NewReleaseForm(ModelForm):
     class Meta:
         model = Release
-        fields = ['releaseName', 'artistName', 'releaseGenre', 'releaseType', 'artistLink', 'releaseUPC', 'releaseDate', 'artistRealName', 'eclipticContent']
+        fields = ['releaseName', 'artistName', 'releaseGenre', 'releaseType', 'artistLink', 'releaseUPC', 'releaseDate', 'artistRealName', 'eclipticContent', "releaseCover"]
         
         widgets = {
             "releaseName": TextInput(attrs={
@@ -34,13 +34,13 @@ class NewReleaseForm(ModelForm):
                 "artistLink": TextInput(attrs={
                 'id': 'artist-link',
                 'type': 'text',
-                'placeholder': "Enter artist spotify profile link"
+                'placeholder': "Enter artist spotify profile link (optional, if u need to create new profile keep it clear)"
             }),
 
                 "releaseUPC": TextInput(attrs={
                 'id': 'release-upc',
                 'type': 'text',
-                'placeholder': "Release UPC"
+                'placeholder': "Release UPC (optional)"
             }),
 
                 "releaseDate": DateTimeInput(attrs={
@@ -60,4 +60,14 @@ class NewReleaseForm(ModelForm):
                 'type': 'text',
                 'placeholder': "Ecliptic content"
             }),
+
+                "releaseCover": ClearableFileInput(attrs={
+                'id': 'release-cover',
+            })
         }
+
+    def __init__(self, *args, **kwargs):
+        super(NewReleaseForm, self).__init__(*args, **kwargs)
+        # Установка полей как необязательных
+        self.fields['artistLink'].required = False
+        self.fields['releaseUPC'].required = False

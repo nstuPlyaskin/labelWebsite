@@ -1,7 +1,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'home/css/new-release.css' %}">
-
 <section id="new-release-section">
+
     
     
     <!-- leftside with indicators -->
@@ -13,16 +13,15 @@
         </div>
         <div id="indicator">
             <div id="indText1">Field info</div>
-            <div id="indText2">Upload files</div>
+            <div id="indText2">Upload</div>
             <div id="indText3">Confirm</div>
         </div>
-    </section>
-
+    </section> 
     <!-- rightside with content -->
     <section id="rightSide">
-        <form method="post" id="form-first">
+        <form method="post" id="form-first" enctype="multipart/form-data">
+            <span id="error">{{ error }}</span>
             {% csrf_token %}
-            <span>{{ error }}</span>
             {{ form.releaseName }}
             {{ form.artistName }}
             {{ form.releaseGenre }}
@@ -31,9 +30,12 @@
             {{ form.releaseUPC }}
             {{ form.releaseDate }}
             {{ form.artistRealName }}
-            {{ form.eclipticContent }}        
-            <button href="" id="button-next" type="submit">Next step</button>
-            <button href="" id="button-clear" type="reset">Clear</button>
+            {{ form.eclipticContent }}  
+            
+            {{ form.releaseCover }}
+      
+            <button href="" id="button-next" type="button">Next step</button>
+            <button href="" id="button-clear" type="button">Clear</button>
         </form>
 
     </section>

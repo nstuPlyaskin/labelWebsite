@@ -140,59 +140,109 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // NOW WE WORKING WITH FORM
-        // FORM - ADD - RELEASE - NEXT - STEP
-        if (event.target.matches('#button-next')) {
-            console.log('button-next clicked');
+        let stepCounter = 1;
 
-            const formFirst = document.getElementById('form-first');
-            const releaseCoverNotify = document.getElementById('release-cover-notify');
-            const releaseCoverTitle = document.getElementById('release-cover-title');
-            const releaseCover = document.getElementById('release-cover');
-            const uploadBg = document.getElementById('upload-bg');
-            const releaseCoverHint = document.getElementById('release-cover-hint');
+        // form 1
+        const formFirst = document.getElementById('form-first');
+        const buttonClear = document.getElementById('button-clear');
+        const releaseCoverNotify = document.getElementById('release-cover-notify');
+        const releaseCoverTitle = document.getElementById('release-cover-title');
+        const releaseCover = document.getElementById('release-cover');
+        const releaseCoverHint = document.getElementById('release-cover-hint');
+        const errorMessage = document.getElementById('error');
+        const formElements = formFirst.elements;
 
-            if (formFirst.checkValidity()) {
-                // Форма валидна, продолжаем выполнение действий
-                const buttonClear = document.getElementById('button-clear');
-                const errorMsg = document.getElementById('error');
+        // form 2
+        const fileInput = document.getElementById('release-cover');
+        const uploadBg = document.getElementById('upload-bg');
+        const uploadText1 = document.getElementById('uploadText1');
+        const uploadText2 = document.getElementById('uploadText2');
 
-                const formElements = formFirst.elements;
+        function formLoader(stepCounter){
+            switch(stepCounter) {
+                case 1:
+                    // описываем что должно быть на форме при шаге 1
+                    console.log("LOADED FORM 1", stepCounter);
 
-                releaseCoverNotify.style.display = 'block';
-                releaseCoverNotify.style.width = '100%';
-                releaseCoverNotify.style.height = 'auto';
-
-                releaseCoverTitle.style.display = 'block';
-                releaseCoverTitle.style.width = '100%';
-                releaseCoverTitle.style.height = '100%';
-
-                releaseCover.style.display = 'block';
-                releaseCover.style.width = '100%';
-                releaseCover.style.height = '60%';
-
-                releaseCoverHint.style.display = 'block';
-                releaseCoverHint.style.width = '100%';
-                releaseCoverHint.style.height = 'auto';
-
-                uploadBg.style.display = 'flex';
-                uploadBg.style.width = '100%';
-                uploadBg.style.height = '100%';
-
-
-                // Пройдемся по всем элементам формы и скроем их
-                for (let i = 0; i < formElements.length; i++) {
-                    const element = formElements[i];
-                    if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover'
-                        && element.id !== 'release-cover-notify' && element.id !== 'release-cover-title'
-                        && element.id !== 'release-cover-hint' && element.id !== 'upload-bg') {
-                        element.style.display = 'none'; // Скрываем элемент, если он не является кнопкой
+                    // Пройдемся по всем элементам формы
+                    for (let i = 0; i < formElements.length; i++) {
+                        const element = formElements[i];
+                        if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover' && element.id !== 'upload-bg') { // Проверяем, не является ли элемент кнопкой или release-cover
+                            element.style.display = ''; // Возвращаем отображение элемента
+                        }
                     }
-                }
 
-            
-                buttonClear.textContent = 'Back';
-                errorMsg.style.display = '';
+                    // Скрываем release-cover-notify, release-cover-title и release-cover-hint
+                    releaseCover.style.display = 'none';
+                    releaseCoverNotify.style.display = 'none';
+                    releaseCoverTitle.style.display = 'none';
+                    releaseCoverHint.style.display = 'none';
+                    uploadBg.style.display = 'none';
 
+
+                    // Поменяем текст кнопки обратно на "Clear"
+                    buttonClear.textContent = 'Clear';
+
+                    break;
+                case 2:
+                    console.log("LOADED FORM 2", stepCounter);
+
+                    releaseCoverNotify.style.display = 'block';
+                    releaseCoverNotify.style.width = '100%';
+                    releaseCoverNotify.style.height = 'auto';
+    
+                    releaseCoverTitle.style.display = 'block';
+                    releaseCoverTitle.style.width = '100%';
+                    releaseCoverTitle.style.height = '100%';
+    
+                    releaseCover.style.display = 'block';
+                    releaseCover.style.width = '100%';
+                    releaseCover.style.height = '60%';
+    
+                    releaseCoverHint.style.display = 'block';
+                    releaseCoverHint.style.width = '100%';
+                    releaseCoverHint.style.height = 'auto';
+    
+                    uploadBg.style.display = 'flex';
+                    uploadBg.style.width = '100%';
+                    uploadBg.style.height = '100%';
+    
+    
+                    // Пройдемся по всем элементам формы и скроем их
+                    for (let i = 0; i < formElements.length; i++) {
+                        const element = formElements[i];
+                        if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover'
+                            && element.id !== 'release-cover-notify' && element.id !== 'release-cover-title'
+                            && element.id !== 'release-cover-hint' && element.id !== 'upload-bg') {
+                            element.style.display = 'none'; // Скрываем элемент, если он не является кнопкой
+                        }
+                    }
+    
+                
+                    buttonClear.textContent = 'Back';
+                    errorMessage.style.display = '';
+                    break;
+                case 3:
+                    console.log(3);
+                    break;
+                default:
+                    console.log('Invalid stepCounter');
+            }
+        }
+        
+
+        // Функция для проверки валидности текущего шага формы
+        function validateStep() {
+            const formFirst = document.getElementById('form-first');
+            return formFirst.checkValidity();
+        }
+
+        // Обработчик для кнопки "Next step"
+        if (event.target.matches('#button-next')) {
+            if (validateStep()) {
+                console.log('valid ok');
+                stepCounter++;
+                formLoader(stepCounter);
             } else {
                 // Форма не прошла проверку на валидность
                 const errorMessage = document.getElementById('error');
@@ -201,17 +251,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        if (event.target.matches('#upload-bg') || event.target.matches('#uploadIcon') || event.target.matches('#uploadText1') || event.target.matches('#uploadText2')) {
-            // Выбираем файловый инпут (предположим, что его id - "release-cover")
-            const fileInput = document.getElementById('release-cover');
-            const uploadBg = document.getElementById('upload-bg');
 
-            const uploadText1 = document.getElementById('uploadText1');
-            const uploadText2 = document.getElementById('uploadText2');
-            
-            // Вызываем метод click() для элемента, чтобы открыть окно выбора файла
+        // Обработчик для кнопки "Back"
+        if (event.target.matches('#button-clear')) {
+
+            if (buttonClear.textContent == 'Clear'){
+                formFirst.reset();
+            }
+
+            if (buttonClear.textContent == 'Back'){
+                formLoader(stepCounter);
+            }
+        }
+
+        // Обработчик для кнопки "Upload"
+        if (event.target.matches('#upload-bg') || event.target.matches('#uploadIcon') || event.target.matches('#uploadText1') || event.target.matches('#uploadText2')) {
             fileInput.click();
-            
+
             // Обработчик события change для элемента input type="file"
             fileInput.addEventListener('change', function() {
                 // Проверяем, был ли выбран файл
@@ -237,45 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-        
-        
-
-
-
-        // FORM - ADD - RELEASE - BACK - STEP
-        if (event.target.matches('#button-clear')) {
-            // Проверяем, содержит ли текст кнопки слово "Back"
-            if (event.target.textContent.includes('Back')) {
-                const formFirst = document.getElementById('form-first');
-                const formElements = formFirst.elements;
-
-                const releaseCover = document.getElementById('release-cover');
-                const releaseCoverNotify = document.getElementById('release-cover-notify');
-                const releaseCoverTitle = document.getElementById('release-cover-title');
-                const releaseCoverHint = document.getElementById('release-cover-hint');
-                const uploadBg = document.getElementById('upload-bg');
-
-                // Пройдемся по всем элементам формы
-                for (let i = 0; i < formElements.length; i++) {
-                    const element = formElements[i];
-                    if (element.nodeName.toLowerCase() !== 'button' && element.id !== 'release-cover' && element.id !== 'upload-bg') { // Проверяем, не является ли элемент кнопкой или release-cover
-                        element.style.display = ''; // Возвращаем отображение элемента
-                    }
-                }
-
-                // Скрываем release-cover-notify, release-cover-title и release-cover-hint
-                releaseCover.style.display = 'none';
-                releaseCoverNotify.style.display = 'none';
-                releaseCoverTitle.style.display = 'none';
-                releaseCoverHint.style.display = 'none';
-                uploadBg.style.display = 'none';
-
-
-                // Поменяем текст кнопки обратно на "Clear"
-                event.target.textContent = 'Clear';
-            }
-        }
-
 
         
     });

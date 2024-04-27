@@ -1,5 +1,5 @@
 from .models import Release
-from django.forms import ModelForm, TextInput, DateTimeInput, ClearableFileInput 
+from django.forms import ModelForm, TextInput, DateTimeInput, ClearableFileInput, Select
 
 class NewReleaseForm(ModelForm):
     class Meta:
@@ -10,25 +10,59 @@ class NewReleaseForm(ModelForm):
             "releaseName": TextInput(attrs={
                 'id': 'release-name',
                 'type': 'text',
-                'placeholder': "Release name"
+                'placeholder': "Release name",
+                'autocomplete': 'off'
             }),
 
                 "artistName": TextInput(attrs={
                 'id': 'artist-name',
                 'type': 'text',
-                'placeholder': "Artist nickname"
+                'placeholder': "Artist nickname",
+                'autocomplete': 'off'
             }),
 
-                "releaseGenre": TextInput(attrs={
+                "releaseGenre": Select(choices=[
+                    ('', 'Release genre'),
+                    ('rap', 'Rap'),
+                    ('Trap', 'Trap'),
+                    ('rnb', 'RnB'),
+                    ('soul', 'Soul'),
+                    ('pop-rap', 'Pop-Rap'),
+                    ('old-school-rap', 'Old School Rap'),
+                    ('electronic', 'Electronic'),
+                    ('techno', 'Techno'),
+                    ('experimental', 'Experimental'),
+                    ('dnb', 'Drum & Bass'),
+                    ('house', 'House'),
+                    ('acoustic', 'Acoustic'),
+                    ('alternative', 'Alternative'),
+                    ('pop-rock', 'Pop-Rock'),
+                    ('punk', 'Punk'),
+                    ('indie', 'Indie'),
+                    ('rock', 'Rock'),
+                    ('metal', 'Metal'),
+                    ('pop', 'Pop'),
+                    ('classic', 'Classic'),
+                    ('folk', 'Folk'),
+                    ('soundtrack', 'Soundtrack'),
+            ], attrs={
                 'id': 'release-genre',
                 'type': 'text',
-                'placeholder': "Release genre"
+                'placeholder': "Release genre",
+                'autocomplete': 'off',
             }),
-
-                "releaseType": TextInput(attrs={
+                "releaseType": Select(choices=[
+                    ('', 'Release type'),
+                    ('single', 'Single'),
+                    ('ep', 'EP'),
+                    ('album', 'Album'),
+                ],
+                
+                attrs={
                 'id': 'release-type',
                 'type': 'text',
-                'placeholder': "Release type"
+                'placeholder': "Release type",
+                'autocomplete': 'off'
             }),
 
                 "artistLink": TextInput(attrs={
@@ -40,13 +74,15 @@ class NewReleaseForm(ModelForm):
                 "releaseUPC": TextInput(attrs={
                 'id': 'release-upc',
                 'type': 'text',
-                'placeholder': "Release UPC (optional)"
+                'placeholder': "Release UPC (optional)",
+                'autocomplete': 'off'
             }),
 
                 "releaseDate": DateTimeInput(attrs={
                 'id': 'release-date',
                 'type': 'date',
-                'placeholder': "Release date"
+                'placeholder': "Release date",
+                'autocomplete': 'off'
             }),
 
                 "artistRealName": TextInput(attrs={
@@ -55,10 +91,16 @@ class NewReleaseForm(ModelForm):
                 'placeholder': "Autrhor real name"
             }),
 
-                "eclipticContent": TextInput(attrs={
-                'id': 'release-ecliptic',
-                'type': 'text',
-                'placeholder': "Ecliptic content"
+                "eclipticContent": Select(choices=[
+                    ('', 'Ecliptic content'),
+                    ('no', 'No'),
+                    ('yes', 'Yes'),
+                ],
+                    attrs={
+                    'id': 'release-ecliptic',
+                    'type': 'text',
+                    'placeholder': "Ecliptic content",
+                    'autocomplete': 'off'
             }),
 
                 "releaseCover": ClearableFileInput(attrs={

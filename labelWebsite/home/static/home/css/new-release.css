@@ -134,7 +134,12 @@
                 width: 100%;
                 height: 100%; 
             }
-                
+
+            select{
+                width: 100%;
+                height: auto;
+            }
+
             #release-name { grid-area: 1 / 1 / 2 / 3; }
             #artist-name { grid-area: 2 / 1 / 3 / 3; }
                 

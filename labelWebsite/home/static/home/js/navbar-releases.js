@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 uploadBg.style.width = '100%';
                 uploadBg.style.height = '100%';
 
+
                 // Пройдемся по всем элементам формы и скроем их
                 for (let i = 0; i < formElements.length; i++) {
                     const element = formElements[i];
@@ -188,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
+            
                 buttonClear.textContent = 'Back';
                 errorMsg.style.display = '';
 
@@ -200,8 +202,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (event.target.matches('#upload-bg') || event.target.matches('#uploadIcon') || event.target.matches('#uploadText1') || event.target.matches('#uploadText2')) {
-            document.getElementById('release-cover').click();
+            // Выбираем файловый инпут (предположим, что его id - "release-cover")
+            const fileInput = document.getElementById('release-cover');
+            const uploadBg = document.getElementById('upload-bg');
+
+            const uploadText1 = document.getElementById('uploadText1');
+            const uploadText2 = document.getElementById('uploadText2');
+            
+            // Вызываем метод click() для элемента, чтобы открыть окно выбора файла
+            fileInput.click();
+            
+            // Обработчик события change для элемента input type="file"
+            fileInput.addEventListener('change', function() {
+                // Проверяем, был ли выбран файл
+                if (fileInput.files.length > 0) {
+                    // Получаем первый выбранный файл (если их несколько, можно перебрать через цикл)
+                    const file = fileInput.files[0];
+        
+                    // Получаем название файла и размер
+                    const fileName = file.name;
+                    const fileSize = file.size;
+
+                    uploadText1.textContent = 'Successfully uploaded';
+                    uploadText2.textContent = fileName;
+                    
+                    uploadBg.style.background = '#DFEFCA';
+
+        
+                    // Теперь можно использовать переменные fileName и fileSize для дальнейших действий
+                    console.log('Название файла:', fileName);
+                    console.log('Размер файла:', fileSize, 'байт');
+                } else {
+                    console.log('Файл не выбран');
+                }
+            });
         }
+        
         
 
 
@@ -233,6 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 releaseCoverTitle.style.display = 'none';
                 releaseCoverHint.style.display = 'none';
                 uploadBg.style.display = 'none';
+
 
                 // Поменяем текст кнопки обратно на "Clear"
                 event.target.textContent = 'Clear';

@@ -12,6 +12,11 @@
     -o-font-feature-settings:"lnum" 1; 
     -webkit-font-feature-settings:"lnum" 1; 
     font-feature-settings:"lnum" 1;
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: inset 0 0 0 50px white; /* цвет вашего фона */
+        -webkit-text-fill-color: black; /* цвет текста */
+    }
 }
 
 /* MAIN SECTION (all screen size) */

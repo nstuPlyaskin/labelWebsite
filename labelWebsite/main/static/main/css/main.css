@@ -154,6 +154,11 @@
                 font-weight: 400;            
             }
 
+            input:-webkit-autofill {
+                -webkit-box-shadow: inset 0 0 0 50px #252525; /* цвет вашего фона */
+                -webkit-text-fill-color: white; /* цвет текста */
+            }
+
 /* For Mobile Resolution */
 @media screen and (max-width: 1024px){
     #right-section{

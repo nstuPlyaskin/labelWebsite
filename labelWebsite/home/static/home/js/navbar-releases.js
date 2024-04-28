@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Дополнительные действия при нажатии на кнопку "Logout"
         if (event.target.matches('#header-button2')) {
-            window.location.href = '/';
+            window.location.href = '/logout';
             // @todo session control and logout
             console.log('Button "Logout" clicked');
         }

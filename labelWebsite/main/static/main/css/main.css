@@ -54,7 +54,7 @@
         cursor: default;
     }
 
-        #login-fields{
+        #login-fields,  #form-login{
             position: relative;
             display: flex;
             flex-direction: column;
@@ -64,6 +64,21 @@
             height: 70%;
 
         }
+
+        #form-login{
+            width: 100%;
+            height: auto;
+        }
+            #login-msg{
+                position: absolute;
+                width: 100%;
+                height: 5vh;
+                top: -5vh;
+                left: 0;
+                text-align: center;
+                font-size: 2.5vh;
+                color: #FFD502;
+            }
 
             #header-text{
                 color: #FFD502;
@@ -164,6 +179,13 @@
     }
 
     #get-access{
+        font-size: 2vh;
+    }
+
+    #login-msg{
+        position: absolute;
+        top: -5vh;
+        left: 0;
         font-size: 2vh;
     }
 }

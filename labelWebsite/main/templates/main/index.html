@@ -24,10 +24,23 @@
 
             <!-- login fields: email, password, button and description under button -->
             <section id="login-fields">
-                <input type="text" id="email_field" placeholder="Email"></input>
-                <input type="password" id="password_field" placeholder="Password"></input>
-                <div href="#about" id="button_login">Sign in</div>
-                <div href="#send-demo" id="get-access">To get access you must submit a demo</div>
+                <form method="post" id="form-login" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" id="email_field" name="email_field" placeholder="Email"></input>
+                    <input type="password" id="password_field" name="password_field" placeholder="Password"></input>
+
+                        <div id="login-msg">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {{ message }}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                    <button href="#about" id="button_login">Sign in</button>
+                    <div href="#send-demo" id="get-access">To get access you must submit a demo</div>
+                </form>
+
             </section>
 
         </section>

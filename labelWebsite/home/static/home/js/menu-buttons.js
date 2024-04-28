@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     lnkLogout.addEventListener('click', function () {
-        loadContent('logout');
+        window.location.href = '/';
     });
 
     // Функция для загрузки контента

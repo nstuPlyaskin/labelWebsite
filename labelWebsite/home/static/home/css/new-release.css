@@ -299,3 +299,7 @@
                 color: black;
                 background: #FFD502;
             }
+
+            #release-genre, #release-type, #release-ecliptic{
+                cursor: pointer;
+            }

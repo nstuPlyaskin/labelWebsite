@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Дополнительные действия при нажатии на кнопку "Logout"
         if (event.target.matches('#header-button2')) {
-            window.location.href = '/login';
+            window.location.href = '/';
             // @todo session control and logout
             console.log('Button "Logout" clicked');
         }
@@ -246,7 +246,9 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Форма не прошла проверку на валидность
                 const errorMessage = document.getElementById('error');
-                errorMessage.textContent = `Ошибка в поле: "${formFirst.querySelector(':invalid').name}" ${formFirst.querySelector(':invalid').validationMessage}`;
+                const invalidField = formFirst.querySelector(':invalid');
+                const fieldName = invalidField.getAttribute('placeholder'); // Получаем placeholder поля
+                errorMessage.textContent = `Ошибка в поле: "${fieldName}" ${invalidField.validationMessage}`;
                 errorMessage.style.display = 'block'; // Показываем элемент с сообщением об ошибке
             }
         }

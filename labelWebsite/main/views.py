@@ -5,20 +5,21 @@ from django.contrib import messages
 # login page
 def index(request):
     if request.user.is_authenticated:
-        return redirect('home/')
-    
-    if request.method == "POST":
-        username = request.POST['email_field']
-        password = request.POST['password_field']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home/')
-        else:
-            messages.success(request, ("Wrong username or password."))
-            return redirect('/')
+        return redirect('/home')
     else:
-        return render(request, 'main/index.html', {})
+    
+        if request.method == "POST":
+            username = request.POST['email_field']
+            password = request.POST['password_field']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home/')
+            else:
+                messages.success(request, ("Wrong username or password."))
+                return redirect('/')
+        else:
+            return render(request, 'main/index.html', {})
 
 def logout_user(request):
     logout(request)
